@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    background-color: rgb(236, 204, 158);
+    font-family: 'Times New Roman', Times, serif; /*Шрифты*/
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+*, 
+*:after,
+*:before {
+    box-sizing: border-box; /*Применяется для изменения алгоритма расчёта ширины и высоты элемента. Согласно спецификации CSS ширина блока складывается из ширины содержимого (width), значений margin, padding и border. Аналогично обстоит и с высотой блока.*/
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+
+/*intro*/
+.intro{
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(249, 224, 188);
+    background-size: cover;
+}
+
+.intro_title{
+    font-size: 150px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.4;
+}
+
+.intro_title:after{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 60px auto 60px;
+    background-color: black;
+}
+
+.intro_suptitile {
+    margin-bottom: 20px;
+    font-size: 72px;
+    color: rgb(0, 0, 0);
+    margin-top: 100px;
+}
+
+.intro_inner{
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*header*/
+.header {
+    position: absolute; /*Элемент исчезает с того места, где он должен быть и позиционируется заново. Остальные элементы, располагаются так, как будто этого элемента никогда не было.*/
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /*тяжесть индекса, что бы не наслаивалось если так случится*/
+    width: 100%;
+    background-color:rgb(252, 220, 175);
+}
+
+.header_logo{
+    font-size: 30px; 
+    font-weight: 700;
+    color: black;
+}
+
+.header_inner{
+    padding-top: 30px; /*отступы друг от друга*/
+    display: flex;
+    justify-content: space-between; /*CSS свойство justify-content определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.*/
+    align-items: center; /*Выравнивает по горизонтали хедера*/
+}
+
+
+/*nav*/
+.nav{
+    font-size: 14px;
+    text-transform: uppercase; /*делает верхний регистр*/
+    color: black;
+}
+
+.nav_link{
+    display: inline-block; /*это значение, которые можно назначить свойству display. Название происходит от некоторых характеристик как строчного, так и блочного элементов. Блочные (block) элементы имеют высоту, ширину, padding, margin, border, а также располагаются вертикально, друг под другом.*/
+    vertical-align: top;
+    position: relative; /*используется для задания родительский позиции относительно .nav_link:after */
+    color: rgba(60, 58, 58, 0.615);
+    text-decoration: none; /*убирает нижнее подчёркивание*/
+    transition: color 0.2s linear; /*смена цвета с задержкой (работает от -.nav_link:hover)*/
+    margin: 0 10px;
+}
+
+.nav_link:after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    /*display: none; /*не отображается на дисплее, пока .nav_link:hover:after не наведётся на вкладку  */
+    background-color: rgba(60, 58, 58, 0.615);
+    opacity: 0;
+    position: absolute; /*позиция обсолютна от родителя , т.е. от .nav_link*/
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.1s linear;
+}
+
+.nav_link:hover{
+    color: black;
+    
+}
+
+/*button*/
+.btn{
+    display: inline-block;
+    vertical-align: top;
+    padding: 8px 30px;
+    border: 3px solid rgb(82, 73, 73);
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(60, 58, 58, 0.615);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.1s linear, background 0.1s linear;
+    margin-top: 160px;
+}
+
+.btn:hover{
+    background-color: rgba(249, 223, 188, 0.805);
+    color: rgb(0, 0, 0);
+}
+
+/*slider*/
+.slider{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.slider_inner{
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider_item{
+    width: 23%;
+    margin: 0px;
+    text-transform: uppercase;
+    padding: 20px 0;
+    border-top: 3px solid black;
+    opacity: 0.7;
+    position: relative;
+}
+
+.slider_item.active {
+    opacity: 1;
+}
+
+.slider_item.active:before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    position: absolute;
+    top: -2.9px;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(255, 0, 0, 0.437);
+}
+
+.slider_number{
+    font-size: 24px;
+    font-weight: 700;
+}
